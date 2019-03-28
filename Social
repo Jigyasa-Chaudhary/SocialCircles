@@ -1,0 +1,75 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    
+    // calculate the sum of the sizes of the social circles 
+    static int sumSize(int[] ar, int n, int limit){
+        int size = n;
+        Arrays.sort(ar);
+        for (int  i = 0; i < n; i++){
+            for (int j = i+1; j < n; j++){
+                if (Math.abs(ar[i]-ar[j]) <= limit){
+                    size = size+2;
+                }
+                else{
+                    break;
+                }
+            }
+        }
+        return size;
+    }
+    
+   /*This class is taken from geeksforgeeks.org*/
+static class FastReader {
+    
+    BufferedReader br;
+    StringTokenizer st;
+    
+    public FastReader() {
+        br = new BufferedReader(new InputStreamReader(System.in));
+    }
+    
+    String next() {
+        while (st == null || !st.hasMoreElements()) {
+            try {
+                st = new StringTokenizer(br.readLine());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return st.nextToken();
+    }
+    
+    int nextInt() {
+        return Integer.parseInt(next());
+    }
+    
+}
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner in = new Scanner(System.in);
+        
+        //n = number of people
+        int n;
+        n = in.nextInt();
+        //System.out.println(n);
+        
+        int limit;
+        limit = in.nextInt();
+        //System.out.println(limit);
+
+        int[] ar = new int[n];
+        
+        //social status of i+1th person
+        //int s = in.nextInt();
+      int i = 0;
+        while(in.hasNextInt()){
+            int s = in.nextInt();
+            ar[i++]=s;
+        }
+        System.out.println(sumSize(ar, n, limit));
+        
+    }
+}
