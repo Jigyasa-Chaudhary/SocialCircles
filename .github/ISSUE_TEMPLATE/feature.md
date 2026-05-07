@@ -2,7 +2,7 @@
 name: Feature
 about: Add feature name here
 title: ''
-labels: ''
+labels: feature
 assignees: Jigyasa-Chaudhary
 
 ---
